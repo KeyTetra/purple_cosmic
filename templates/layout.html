@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ye.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/card.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css') }}">
+</head>
+<body>
+  <div class="cart" id="cart" style="display: none;">
+    <header>
+      <p>Your Cart</p>
+      <span class="close" onclick="w3_close()">+</span>
+    </header>
+    <div>
+      <p>No items in cart...</p>
+    </div>
+    <foot>
+      <total><p>Subtotal: </p></total>
+    </foot>
+  </div>
+  <main>
+    {% block content %}
+    {% endblock content %}
+
+  </main>
+
+  <footer>
+    {%if current_user %}
+      {% if current_user.authenticated %}
+        <i id="back-to-top-btn" class="fas fa-angle-up" aria-hidden="true"></i>
+        <p>Help</p>
+        <p>Terms</p>
+        <p>Sign Out</p>
+        <a id="logo" href="/">
+          <img src="{{ url_for('static', filename='assets/snackstack.jpg')}}" alt="logo">
+        </a>
+        <p class="active">Shop</p>
+        <p>About</p>
+        <p>Contact</p>
+
+
+      {% else%}
+        <i id="back-to-top-btn" class="fas fa-angle-up" aria-hidden="true"></i>
+        <p>About</p>
+        <p>Contact</p>
+        <a id="logo" href="/">
+          <img src="{{ url_for('static', filename='assets/pc.png')}}" alt="logo">
+        </a>
+        <p class="active">Shop</p>
+        <p>Login</p>
+        <p>Signup</p>
+
+
+      {% endif %}
+    {%else%}
+      <i id="back-to-top-btn" class="fas fa-angle-up" aria-hidden="true"></i>
+        <p>About</p>
+        <p>Contact</p>
+        <a id="logo" href="/">
+          <img src="{{ url_for('static', filename='assets/snackstack.jpg')}}" alt="logo">
+        </a>
+        <p class="active">Shop</p>
+        <p>Login</p>
+        <p>Signup</p>
+        <button onclick="w3_open()">Open cart
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960">
+            <path d="M220 976q-24 0-42-18t-18-42V396q0-24 18-42t42-18h110v-10q0-63 43.5-106.5T480 176q63 0 106.5 43.5T630 326v10h110q24 0 42 18t18 42v520q0 24-18 42t-42 18H220Zm0-60h520V396H630v90q0 12.75-8.675 21.375-8.676 8.625-21.5 8.625-12.825 0-21.325-8.625T570 486v-90H390v90q0 12.75-8.675 21.375-8.676 8.625-21.5 8.625-12.825 0-21.325-8.625T330 486v-90H220v520Zm170-580h180v-10q0-38-26-64t-64-26q-38 0-64 26t-26 64v10ZM220 916V396v520Z" />
+          </svg>
+        </button>
+    {% endif %}
+  </footer>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/shopify-cartjs/1.1.0/cart.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/shopify-cartjs/1.1.0/rivets-cart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+  <script src="{{url_for('static', filename='js/ye.js')}}"></script>
+  <script src="{{url_for('static', filename='js/card.js')}}"></script>
+  <script src="{{url_for('static', filename='js/cart.js')}}"></script>
+
+</body>
+</html>

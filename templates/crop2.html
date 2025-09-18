@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <img src="{{image}}">
+    <form action="/crop2" method="post">
+        <input type="text" name="image" value="{{image}}" hidden="hidden">
+        <label for="crop_con">Crop good or Bad?</label>
+          <select id="crop_con" name="crop_con">
+            <option value="good">Good</option>
+            <option value="bad">Bad</option>
+          </select>
+        <button type="submit">Submit</button>
+        
+    </form>
+</body>
+</html>

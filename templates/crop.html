@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/croppie.css')}}" />
+    <script src="{{url_for('static', filename='js/croppie.js')}}"></script>
+</head>
+<body>
+    <div>
+        <form action="/crop" method="post">
+            <input type="text" id="x" name="x" size="4" aria-label="x" hidden="hidden">
+            <input type="text" id="y" name="y" size="4" aria-label="y" hidden="hidden">
+            <input type="text" id="width" name="width" size="4" aria-label="width" hidden="hidden">
+            <input type="text" id="height" name="height" size="4" aria-label="height" hidden="hidden">
+            <input type="text" name="image" value="{{image}}" hidden="hidden">
+            <button type="submit">submit</button>
+        </form>
+    </div>
+    <br>
+    <div class="demo" id="demo" style="height: 200px; width: 200px;"></div>
+
+
+
+    <script>
+        var el = document.getElementById('demo');
+        var x = document.getElementById('x');
+        var y = document.getElementById('y');
+        var width = document.getElementById('width');
+        var height = document.getElementById('height');
+        var resize = new Croppie(el, {
+        viewport: { width: 100, height: 100 },
+        boundary: { width: 480, height: 480 },
+        showZoomer: false,
+        enableResize: true,
+
+        enforceBoundary: false,
+        enableOrientation: true,
+        mouseWheelZoom: 'ctrl'
+        });
+        resize.bind({
+            url: '{{image}}',
+        });
+        //on button click
+        resize.result('blob').then(function(blob) {
+            console.log(resize.options.boundary);
+            console.log(resize.options.viewport);
+
+        });
+        document.getElementById('demo').addEventListener('update', function(ev) {
+            var cropData = ev.detail;
+            console.log("boundary: ", resize.options.boundary);
+            console.log("viewport: ", resize.options.viewport);
+            console.log("get: ", resize.get().points[0]);
+            x.value = resize.get().points[0];
+            y.value = resize.get().points[1];
+            height.value = resize.options.viewport['height'];
+            width.value = resize.options.viewport['width'];
+            console.log("crop report: ", x.val, y.val, height.val, width.val);
+        });
+
+
+    </script>
+    <!-- or even simpler -->
+</body>
+</html>

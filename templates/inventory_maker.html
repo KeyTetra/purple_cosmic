@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for product in pproducts %}
+    <div>
+
+            <div>
+                {% for i in product.products %}
+                    <img src="{{i.cropped_im}}">
+                {% endfor %}
+            </div>
+            <form action="/inventory_maker" method="POST">
+
+                <input  name="product_id" type="text" value="{{product._id}}" hidden="hidden">
+                <label for="title">Title?</label>
+                <input id="title" name="title" placeholder="Input a Title">
+                <br>
+                <label for="price">Price?</label>
+                <input id="price" name="price" placeholder="Input a Price">
+                <br>
+                <button type="submit">Submit</button>
+            </form>
+
+    </div>
+    <br>
+{% endfor %}
+</body>
+</html>

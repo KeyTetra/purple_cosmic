@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <a href="/all_products">
+        Products
+    </a>
+</div>
+<div>
+    {% for product in pproducts %}
+        <form action="/product_maker" method="POST">
+            <img src="{{product.cropped_filename}}">
+            <p>{{product.filename}}</p>
+            <input value="{{product._id}}" name="product_id" hidden="hidden">
+            <label for="group">Group</label>
+            <select id="group" name="group">
+                {% for g in groups %}
+                    <option value="{{g.name}}">{{g.name}}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <label for="color">Color?</label>
+            <select id="color" name="color">
+                {% for c in colors %}
+                    <option value="{{c.name}}">{{c.name}}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

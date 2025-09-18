@@ -1,0 +1,192 @@
+/* Import Google font */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&display=swap");
+
+/* Basic reset */
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  scroll-padding-top: 1rem;
+  -webkit-box-sizing: border-box;
+  font-family: "Poppins", montserrat, system-ui;
+}
+
+::-webkit-input-placeholder,
+::-ms-input-placeholder,
+:-ms-input-placeholder,
+::-moz-placeholder,
+::placeholder {
+  opacity: 0.7;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+button,
+input {
+  display: block;
+  font-size: unset;
+  padding: 0.4rem 0.5rem;
+}
+
+/* Your color schemes & spacings */
+
+:root {
+  --accent: ;
+  --primary: ;
+}
+
+/* Media queires */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+  }
+}
+
+/* Utility classes */
+
+.u-flex {
+  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  align-items: center;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  -ms-flex-pack: justify;
+  -ms-flex-align: center;
+  -webkit-box-pack: justify;
+  -webkit-box-align: center;
+  justify-content: space-between;
+}
+
+.u-grid {
+  gap: 0.4rem;
+  display: grid;
+  display: -ms-grid;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-pack: center;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 200px));
+}
+
+/* Page styles */
+body {
+  display: grid;
+  height: 100vh;
+  overflow-x: hidden;
+  place-items: center;
+}
+
+button {
+  display: flex;
+  gap: 0.5rem;
+  color: #2c2c2c;
+  align-items: center;
+  border: none;
+  outline-offset: 5px;
+  padding: 0.4rem 1rem;
+  border-radius: 0.3rem;
+  background-color: #f9d949;
+}
+
+svg {
+  width: 1.2rem;
+  aspect-ratio: 1;
+}
+path {
+  fill: #2c2c2c;
+}
+
+button:focus-visible,
+button:hover {
+  box-shadow: 0 2px 14px 2px #f9d949;
+}
+
+.cart {
+  display: block;
+  color: black;
+  right: 10px;
+  top:10px;
+  bottom:10px;
+  width: 24%;
+  height: 97%;
+  position: absolute;
+  background-color: #FFFFFF;
+
+  border-top: 3px solid #f9d949;
+  transition: all 0.2s ease;
+  border-width: 2px; /* Sets the thickness of the border */
+  border-style: solid; /* Sets the style (e.g., solid, dotted, dashed) */
+  border-color: black;
+  z-index: 4;
+}
+
+.cart header {
+  display: flex;
+  margin: 0.2rem 0;
+  padding: 0 1rem;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 5;
+}
+
+.cart header p {
+  flex-grow: 2;
+  font-size: 1.3rem;
+  padding-right: 1.5rem;
+  text-align: center;
+  z-index: 6;
+}
+.cart header span {
+  rotate: 45deg;
+  cursor: pointer;
+  font-size: 2rem;
+  user-select: none;
+  display: inline-block;
+  z-index: 6;
+}
+.cart foot {
+  position: absolute;
+  bottom: 5%;
+  height: 20%;
+  display: flex;
+  margin: 0.2rem 0;
+  padding: 0 1rem;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 5;
+}
+.cart foot total {
+  flex-grow: 2;
+  font-size: 1.3rem;
+  padding-right: 1.5rem;
+  text-align: center;
+  z-index: 6;
+}
+.cart div {
+  padding: 1rem;
+  opacity: 0.4;
+  text-align: center;
+}
+
+.cart.active {
+  transform: translatex(0);
+}
+
+@media (max-width: 700px) {
+  .cart {
+    width: 100%;
+  }
+}

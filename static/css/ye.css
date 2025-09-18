@@ -1,0 +1,290 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #fff;
+  color: #1e1e1e;
+  font-family: "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+main {
+  margin: 0 30px 80px 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+main #filter {
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 150px;
+  padding-left: 30px;
+  width: 20%;
+  height: 100%;
+  position: fixed;
+  top: 25px;
+  left: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  border-right: 1px solid #777777;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+main #filter .ui-group {
+  border-bottom: 1px solid #777777;
+}
+main #filter .ui-group input {
+  display: none;
+}
+main #filter .ui-group label {
+  display: block;
+  padding: 30px 0;
+  cursor: pointer;
+}
+main #filter .ui-group label#category-label {
+  padding-top: 0;
+}
+main #filter .ui-group label i {
+  margin-right: 30px;
+  font-size: 1.2rem;
+  transition: all 0.2s ease-in-out;
+}
+main #filter .ui-group #category:checked + label > i {
+  transform: rotate(-90deg);
+}
+main #filter .ui-group #category:checked ~ .button-group {
+  height: 0;
+}
+main #filter .ui-group #color:checked + label > i {
+  transform: rotate(-90deg);
+}
+main #filter .ui-group #color:checked ~ .button-group {
+  height: 0;
+  margin-bottom: 0;
+}
+main #filter .ui-group .button-group {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 250px;
+  transition: height 0.2s ease-in-out;
+}
+main #filter .ui-group .button-group div {
+  margin-bottom: 30px;
+}
+main #filter .ui-group .button-group input {
+  display: none;
+}
+main #filter .ui-group .button-group .button {
+  padding: 10px;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+main #filter .ui-group .button-group .button.is-checked {
+  opacity: 1;
+}
+main #filter .ui-group .button-group .button:hover {
+  opacity: 1;
+}
+main #filter .ui-group .button-group .color-circle {
+  margin: 10px;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+main #filter .ui-group .button-group .color-circle#camo {
+  background: url("https://s20.postimg.cc/top5zzkql/camo.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+main #filter .ui-group .button-group .color-circle#green {
+  background: #5c8464;
+}
+main #filter .ui-group .button-group .color-circle#black {
+  background: #292826;
+}
+main #filter .ui-group .button-group .color-circle#blue {
+  background: #637db7;
+}
+main #filter .ui-group .button-group .color-circle#brown {
+  background: #746354;
+}
+main #filter .ui-group .button-group .color-circle#red {
+  background: #99382d;
+}
+main #filter .ui-group .button-group .color-circle#grey {
+  background: #c9c9c9;
+}
+main #filter .ui-group:nth-of-type(2) .button-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  height: 80px;
+  margin-bottom: 30px;
+}
+main #items {
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 80px;
+  width: 80%;
+  min-height: 100vh;
+  width: 80%;
+  position: absolute;
+  top: 81px;
+  right: 0;
+}
+main #items .filter-info {
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  z-index: 1;
+}
+main #items .filter-info #filter-display-container {
+  margin-left: 30px;
+  color: #777777;
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+}
+main #items .filter-info #filter-display-container #category-filter-display {
+  font-size: 2rem;
+  margin: 0;
+}
+main #items .filter-info #filter-display-container #color-filter-display {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+main #items .filter-info #filter-count-container {
+  color: #777777;
+  font-weight: 300;
+}
+main #items #no-items-container {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+}
+main #items #no-items-container #no-items-text {
+  font-size: 1.2rem;
+}
+main #items .grid {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+main #items .grid .grid-item {
+  width: 33.33%;
+  height: 334.03px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+
+  color: #777777;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+
+main #items .grid .grid-item:hover .item-name, main #items .grid .grid-item:hover .item-price {
+  opacity: 0.5;
+}
+main #items .grid .grid-item img {
+  width: 80%;
+  max-width: 440px;
+}
+main #items .grid .grid-item .item-name {
+  width: 80%;
+  text-align: center;
+  font-weight: 300;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s ease-in-out;
+  line-height: 1.5;
+}
+main #items .grid .grid-item .item-price {
+  font-weight: 100;
+  font-style: italic;
+  font-size: 0.7rem;
+  margin-top: 20px;
+  letter-spacing: 1px;
+  transition: all 0.2s ease-in-out;
+}
+
+footer {
+  padding: 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #777777;
+  background: #fff;
+  z-index: 1;
+  transition: bottom 0.5s ease-in-out;
+}
+footer #back-to-top-btn {
+  font-size: 1.2rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  border: 1px solid #777777;
+  position: relative;
+  top: -100px;
+
+  transition: bottom 0.5s ease-in-out;
+}
+footer #back-to-top-btn.show {
+  top: 10px;
+
+}
+footer #logo {
+  width: 75px;
+  text-decoration: none;
+}
+footer #logo img {
+  width: 100%;
+}
+footer p {
+  font-size: 0.9rem;
+  padding: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
+}
+footer p:hover {
+  opacity: 1;
+}
+footer p.active {
+  opacity: 1;
+}
+footer #cart {
+  font-size: 0.9rem;
+  padding: 10px 35px;
+  cursor: pointer;
+  border: 1px solid #777777;
+  border-radius: 20px;
+}

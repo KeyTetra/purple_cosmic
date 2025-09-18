@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        {%for c in colors %}
+            <p>{{c.name}}</p>
+
+        {%endfor%}
+    </div>
+    <div>
+        <form action="/add_color" method="POST">
+            <label for="color"></label>
+            <input  id="color" name="color" type="text" placeholder="input a new color">
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

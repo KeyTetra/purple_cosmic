@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        {%for g in groups %}
+            <p>{{g.name}}</p>
+            <br>
+        {%endfor%}
+    </div>
+    <div>
+        <form action="/add_group" method="POST">
+            <label for="group"></label>
+            <input  id="group" name="group" type="text" placeholder="input a new Group">
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

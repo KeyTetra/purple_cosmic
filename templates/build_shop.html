@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <section id="filter">
+
+      <div class="ui-group">
+        <input id="category" type="checkbox">
+        <label id="category-label" for="category"><i class="fas fa-caret-down"></i> Category</label>
+        <div id="category-button-group" class="button-group js-radio-button-group" data-filter-group="category">
+          <div>
+            <input type="checkbox" value="*" id="all" />
+            <label class="button is-checked" for="all">All</label>
+          </div>
+          <div>
+            <input type="checkbox" value=".new" id="new" />
+            <label class="button" for="new">New Arrivals</label>
+          </div>
+          <div>
+            <input type="checkbox" value=".women" id="women" />
+            <label class="button" for="women">Women</label>
+          </div>
+          <div>
+            <input type="checkbox" value=".men" id="men" />
+            <label class="button" for="men">Men</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-group">
+        <input id="color" type="checkbox">
+        <label id="color-label" for="color"><i class="fas fa-caret-down"></i> Color</label>
+        <div id="color-button-group" class="button-group js-radio-button-group" data-filter-group="color">
+          <div id="grey" class="color-circle button" data-filter=".grey"></div>
+          <div id="red" class="color-circle button" data-filter=".red"></div>
+          <div id="green" class="color-circle button" data-filter=".green"></div>
+          <div id="blue" class="color-circle button" data-filter=".blue"></div>
+          <div id="brown" class="color-circle button" data-filter=".brown"></div>
+          <div id="black" class="color-circle button" data-filter=".black"></div>
+          <div id="camo" class="color-circle button" data-filter=".camo"></div>
+        </div>
+      </div>
+
+    </section>
+
+    <section id="items">
+
+      <div class="filter-info">
+        <div id="filter-display-container">
+          <p id="category-filter-display"></p>
+          <p id="color-filter-display"></p>
+        </div>
+        <div id="filter-count-container">
+          <p id="initial-filter-count"></p>
+          <p id="updated-filter-count"></p>
+        </div>
+      </div>
+      <div id="no-items-container">
+        <p id="no-items-text">No items matched this filter. Please try another.</p>
+      </div>
+
+      <div class="grid">
+        {% for item in p_list %}
+          <div class="grid-item new men brown">
+            <div class="card border-left-behind">
+              <div class="shadow" style="--url: url('https://i.ibb.co/PM4ghD4/full.png')"></div>
+              <div class="image background" style="--url: url({{url_for('static', filename='assets/')}}{{ b_list| random }})"></div>
+              <div class="image cutout" style="--url: url({{url_for('static', filename=item.products[0].cropped_image)}});"></div>
+              <div class="content">
+                <h2>${{item.price}}</h2>
+                <p>{{item.title}}</p>
+              </div>
+            </div>
+            <h4 class="item-name"></h4>
+            <h5 class="item-price"></h5>
+          </div>
+        {% endfor %}
+
+
+      </div>
+    </section>
+{% endblock content %}
