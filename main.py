@@ -162,12 +162,12 @@ def signup():
                 "email": form.email.data,
                 "username": form.username.data,
                 "password": password,
-                "type": "admin",
+                "type": "user",
                 "created_at": datetime.utcnow(),
                 "updated_at": datetime.now(),
                 "status": "unverified",
-                "role": "CEO",
-                "pic": "assets/hail.jpg"
+                "role": "Customer",
+                "pic": ""
             }
             users.insert_one(pack)
             print("done.")
@@ -417,9 +417,9 @@ def admin_dashboard():
                 the_admins.append(user['pic'])
         return render_template("admin_dashboard.html", inventory=the_inv, the_admins=the_admins)
 
-if __name__ == '__main__':
-    app.run(debug=True)
-
 """if __name__ == '__main__':
+    app.run(debug=True)"""
+
+if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)"""
+    app.run(host='0.0.0.0', port=port)
