@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='assets/pc.png')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_dashboard.css') }}">
+</head>
+<body>
+    <div class="app">
+     <div class="sidebar">
+      <div class="user">
+       <img src="{{url_for('static',filename='')}}{{current_user.pic}}" alt="user photo" class="user-photo">
+       <div class="user-name">{{current_user.username | safe}}</div>
+       <div class="user-mail">{{current_user.email}}</div>
+          <br>
+       <a href="/"class="sidebar-menu__link">Go To Shop</a>
+      </div>
+      <div class="sidebar-menu">
+       <a href="#" class="sidebar-menu__link">WorkFlow</a>
+       <a href="#" class="sidebar-menu__link">Productivity</a>
+       <a href="#" class="sidebar-menu__link">Promotions</a>
+      </div>
+      <label class="toggle">
+       <input type="checkbox">
+       <span class="slider"></span>
+      </label>
+     </div>
+     <div class="main">
+      <div class="main-header">
+       <div class="main-header__title">Productivity</div>
+       <div class="main-header__avatars">
+           {%for admin in the_admins %}
+                <img class="main-header__avatar" src="{{url_for('static',filename='')}}{{admin}}" alt="avatar">
+           {% endfor %}
+           <button class="add-button"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+    </svg></button>
+       </div>
+       <button class="main-header__add">
+        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
+    </svg>
+       </button>
+      </div>
+      <div class="main-header-nav">
+        <a href="#" class="nav-item active">All</a>
+        <a href="#" class="nav-item">inventory</a>
+        <a href="#" class="nav-item">Sales</a>
+        <a href="#" class="nav-item">Email-list</a>
+        <a href="#" class="nav-item">To-do list</a>
+      </div>
+      <div class="main-content">
+       <div class="card card-img" style="background-image: url('https://images.unsplash.com/photo-1567653418876-5bb0e566e1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1664&q=80');"></div>
+       <div class="card card-2 card-img"></div>
+       <div class="card card-3 card-img"></div>
+        <div class="card card-img card-1 card-main"></div>
+       <div class="card card-4 card-img"></div>
+       <div class="card card-img card-5"></div>
+       <div class="card card-6 card-img"></div>
+      </div>
+     </div>
+    </div>
+<script src="{{ url_for('static', filename='js/admin_dashboard.js') }}"></script>
+</body>
+</html>

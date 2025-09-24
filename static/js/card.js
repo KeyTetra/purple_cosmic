@@ -9,7 +9,10 @@ const remap = (value, oldMax, newMax) => {
 	const newValue = ((value + oldMax) * (newMax * 2)) / (oldMax * 2) - newMax;
 	return Math.min(Math.max(newValue, -newMax), newMax);
 };
-
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+function detectMob() {
+    return ( ( window.innerWidth <= 800 ) && ( window.innerHeight <= 600 ) );
+}
 window.addEventListener("DOMContentLoaded", (event) => {
 	const cards = document.querySelectorAll(".card");
 	cards.forEach((e) => {

@@ -60,11 +60,13 @@
 
       <div class="grid">
         {% for item in p_list %}
+          {% set p = item.products%}
+          {% set t = p | random %}
           <div class="grid-item new men brown">
             <div class="card border-left-behind">
               <div class="shadow" style="--url: url('https://i.ibb.co/PM4ghD4/full.png')"></div>
               <div class="image background" style="--url: url({{url_for('static', filename='assets/')}}{{ b_list| random }})"></div>
-              <div class="image cutout" style="--url: url({{url_for('static', filename=item.products[0].cropped_image)}});"></div>
+              <div class="image cutout" style="--url: url({{url_for('static', filename=t.cropped_image)}});"></div>
               <div class="content">
                 <h2>${{item.price}}</h2>
                 <p>{{item.title}}</p>

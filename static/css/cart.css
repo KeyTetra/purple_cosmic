@@ -94,11 +94,11 @@ button {
   gap: 0.5rem;
   color: #2c2c2c;
   align-items: center;
-  border: none;
+  border: 2px solid black;
   outline-offset: 5px;
   padding: 0.4rem 1rem;
   border-radius: 0.3rem;
-  background-color: #f9d949;
+  background-color: #fcfcfc;
 }
 
 svg {
@@ -111,7 +111,7 @@ path {
 
 button:focus-visible,
 button:hover {
-  box-shadow: 0 2px 14px 2px #f9d949;
+  box-shadow: 0 2px 14px 2px #731d82;
 }
 
 .cart {
