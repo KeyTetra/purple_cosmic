@@ -418,7 +418,7 @@ def admin_dashboard():
         return render_template("admin_dashboard.html", inventory=the_inv, the_admins=the_admins)
 
 @app.route("/promo", methods=["GET", "POST"])
-def admin_dashboard():
+def promo():
     if request.method == "GET":
         return "<br><a href='/'>Go Back</>"
 
