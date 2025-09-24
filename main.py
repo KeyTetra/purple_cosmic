@@ -417,9 +417,15 @@ def admin_dashboard():
                 the_admins.append(user['pic'])
         return render_template("admin_dashboard.html", inventory=the_inv, the_admins=the_admins)
 
+@app.route("/promo", methods=["GET", "POST"])
+def admin_dashboard():
+    if request.method == "GET":
+        return "<br><a href='/'>Go Back</>"
+
+
 """if __name__ == '__main__':
     app.run(debug=True)"""
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', 10000))
     app.run(host='0.0.0.0', port=port)
